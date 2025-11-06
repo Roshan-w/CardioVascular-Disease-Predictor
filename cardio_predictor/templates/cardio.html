@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cardiovascular Disease Predictor</title>
+    <style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #f2f6f9, #e0ecf3);
+        margin: 0;
+        padding: 30px 0;
+        min-height: 100vh;
+        overflow-y: auto;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .container {
+        background: #fff;
+        padding: 30px 40px;
+        border-radius: 16px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        max-width: 500px;
+        width: 90%;
+        margin: 20px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        margin-top: 10px;
+        font-weight: 500;
+        color: #555;
+    }
+
+    input[type="text"] {
+        padding: 10px 12px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 15px;
+        transition: border 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+        border-color: #0077cc;
+        outline: none;
+    }
+
+    input[type="submit"] {
+        margin-top: 20px;
+        padding: 12px;
+        background-color: #0077cc;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #005fa3;
+    }
+
+    h3 {
+        text-align: center;
+        margin-top: 20px;
+        color: #333;
+    }
+
+    @media screen and (max-width: 600px) {
+        .container {
+            padding: 20px;
+        }
+    }
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <h2>Cardiovascular Disease Prediction </h2>
+
+        <form method="POST">
+            {%  for field in fields %}
+                <label for="{{ field }}">{{ field.replace('_', ' ').capitalize() }}:</label>
+                <input type="text" name="{{ field }}" required>
+            {% endfor %}
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if result %}
+            <h3>{{ result }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
