@@ -71,8 +71,3 @@ We welcome contributions to improve this project! Please follow these steps to c
    ```
 5. Open a Pull Request.
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-This README file was auto-generated on 2026-04-14.
